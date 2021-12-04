@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    list-style: none;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+:root {
+    --twitter-color : #50b7f5;
+    --twitter-background : #e6ecf0;
+}
+
+.bird-icon {
+    color: var(--twitter-color);
+    font-size: 50px!important;
+    padding-bottom: 12px;
+}
+
+.content1 {
+    margin: 48px 0;
+    font-size: 64px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-stretch: 100%;
+    font-weight: 700;
+    line-height: 84px;
+    overflow-wrap: break-word;
+}
+
+.content2 {
+    margin-bottom: 32px;
+    font-size: 31px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-stretch: 100%;
+    font-weight: 700;
+    line-height: 36px;
+    overflow-wrap: break-word;
+}
+
+.sign-up{
+    border: .1rem solid var(--twitter-color);
+    border-radius: 4rem;
+}

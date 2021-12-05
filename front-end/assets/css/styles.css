@@ -42,3 +42,7 @@
     border: .1rem solid var(--twitter-color);
     border-radius: 4rem;
 }
+
+.fa-brands.fa-twitter.logo {
+    text-align: center;
+}

@@ -97,12 +97,16 @@
 
                         <!-- Modal Header -->
                         <div class="modal-header">
-                            <h4 class="modal-title">Modal Heading</h4>
+                            <div class="bird-icon">
+                                <i class="fa-brands fa-twitter logo"></i>
+                            </div>
+                            
                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                         </div>
 
                         <!-- Modal body -->
                         <div class="modal-body">
+                            <h3 class="mb-3">Sign in to Twitter</h3>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">

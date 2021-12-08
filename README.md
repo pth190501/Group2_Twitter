@@ -1,8 +1,8 @@
 # Group2_Twitter
 
 Member :
-Pham Thanh Hai _ 1951060683 _ 22 _ 61THNB
-Nguyen Van Dong _ 1951060609 _ 18 _ 61THNB
-Vu Van Chuc _ _ _ 61THNB
+<space>Pham Thanh Hai _ 1951060683 _ 22 _ 61THNB </space>
+<space>Nguyen Van Dong _ 1951060609 _ 18 _ 61THNB </space>
+<space>Vu Van Chuc _ 1951060564_ 11 _ 61THNB </space>
 
-Topic : Clone twitter fullstack
+<h4>Topic : Clone twitter fullstack</h4>

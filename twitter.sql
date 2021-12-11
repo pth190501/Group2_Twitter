@@ -40,7 +40,7 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`ID`, `First_Name`, `Last_Name`, `Email`, `Password`) VALUES
-(1, 'Phạm', 'Hải', 'pth190501@gmail.com', '202cb962ac59075b964b07152d234b70'),
+(1, 'Phạm', 'Hải', 'pth190501@gmail.com', '202cb962ac59075b964b07152d234b70')
 
 
 --

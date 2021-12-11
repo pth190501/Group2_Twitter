@@ -13,43 +13,48 @@ if (isset($_POST['save'])) {
     } else if ($pass != $cpass) {
         $notifail = "The entered passwords do not match. Try again.";
     } else if (!preg_match($pattern, $mail)) {
-        $notithatbai = "Email format is incorrect";
+        $notifail = "Email format is incorrect";
     } else {
-        //thoa man
-        $db->query("INSERT INTO register(First_Name, Last_Name, Email, Password) VALUES ('" . $fname . "', '" . $lname . "', '" . $mail ."', '" . md5($pass) . "')");
-        $notidone = "Sign Up Success";
-        $notibonus = '.then(function() { window.location.href = "login.php"; })';
+        $hihi = $db->query("SELECT * FROM register WHERE Email = '$mail' LIMIT 1")->rowcount();
+        if ($hihi != 0) {
+            $notifail = "Email already exists in the system";
+        } else {
+            //thoa man
+            $db->query("INSERT INTO register(First_Name, Last_Name, Email, Password) VALUES ('" . $fname . "', '" . $lname . "', '" . $mail . "', '" . md5($pass) . "')");
+            $notidone = "Sign Up Success";
+            $notibonus = '.then(function() { window.location.href = "login.php"; })';
+        }
     }
 }
 ?>
-<div class="signup-form">
-    <form method="post" enctype="multipart/form-data">
-		<h2>Register</h2>
-		<p class="hint-text">Create your account</p>
-        <div class="form-group">
-			<div class="row">
-				<div class="col"><input type="text" class="form-control" name="first_name" placeholder="First Name" required="required"></div>
-				<div class="col"><input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required"></div>
-			</div>        	
-        </div>
-        <div class="form-group">
-        	<input type="email" class="form-control" name="email" placeholder="Email" required="required">
-        </div>
-		<div class="form-group">
-            <input type="password" class="form-control" name="pass" placeholder="Password" required="required">
-        </div>
-		<div class="form-group">
-            <input type="password" class="form-control" name="cpass" placeholder="Confirm Password" required="required">
-        </div>
-               
-        <div class="form-group">
-			<label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> & <a href="#">Privacy Policy</a></label>
-		</div>
-		<div class="form-group">
-            <button type="submit" name="save" class="btn btn-success btn-lg btn-block">Register Now</button>
-        </div>
-        <div class="text-center">Already have an account? <a href="login.php">Log in</a></div>
-    </form>
-	
-</div>
+    <div class="signup-form">
+        <form method="post" enctype="multipart/form-data">
+            <h2>Register</h2>
+            <p class="hint-text">Create your account</p>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col"><input type="text" class="form-control" name="first_name" placeholder="First Name" required="required"></div>
+                    <div class="col"><input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="Email" required="required">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="pass" placeholder="Password" required="required">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="cpass" placeholder="Confirm Password" required="required">
+            </div>
+
+            <div class="form-group">
+                <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> & <a href="#">Privacy Policy</a></label>
+            </div>
+            <div class="form-group">
+                <button type="submit" name="save" class="btn btn-success btn-lg btn-block">Register Now</button>
+            </div>
+            <div class="text-center">Already have an account? <a href="login.php">Log in</a></div>
+        </form>
+
+    </div>
 <?php require_once 'sys/end.php'; ?>

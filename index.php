@@ -1,4 +1,10 @@
 <?php require_once 'sys/head.php'; ?>
+<?php
+    if (isset($_SESSION['user'])) {
+        header("Location: home.php");
+        exit;
+    }
+?>  
 
 <section class="container-fluid p-0">
     <div class="row">
@@ -45,4 +51,5 @@
         </div>
     </div>
 </section>
+
 <?php require_once 'sys/end.php'; ?>

@@ -1,6 +1,11 @@
 <?php
 $tit = "Sign Up";
 require_once 'sys/head.php';
+if (isset($_SESSION['user'])) {
+    header("Location: home.php");
+    exit;
+}
+
 if (isset($_POST['save'])) {
     $fname = locdata($_POST['first_name']);
     $lname = locdata($_POST['last_name']);

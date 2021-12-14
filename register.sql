@@ -2,8 +2,8 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: localhost
--- Thời gian đã tạo: Th12 11, 2021 lúc 05:04 AM
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th12 11, 2021 lúc 11:01 AM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.12
 
@@ -28,20 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `register` (
-  `ID` int(10) NOT NULL,
-  `First_Name` varchar(100) NOT NULL,
-  `Last_Name` varchar(100) NOT NULL,
-  `Email` varchar(100) NOT NULL,
+  `ID` int(11) NOT NULL,
+  `First_name` varchar(255) NOT NULL,
+  `Last_name` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL,
   `Password` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Đang đổ dữ liệu cho bảng `register`
---
-
-INSERT INTO `register` (`ID`, `First_Name`, `Last_Name`, `Email`, `Password`) VALUES
-(1, 'Phạm', 'Hải', 'pth190501@gmail.com', '202cb962ac59075b964b07152d234b70'),
-
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -61,7 +53,7 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT cho bảng `register`
 --
 ALTER TABLE `register`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

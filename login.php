@@ -1,6 +1,10 @@
 <?php
 $tit = "Log In";
 require_once 'sys/head.php';
+if (isset($_SESSION['user'])) {
+    header("Location: home.php");
+    exit;
+}
 if (isset($_POST['login'])) {
     $mail = locdata($_POST['email']);
     $pass = locdata($_POST['pass']);
@@ -8,6 +12,7 @@ if (isset($_POST['login'])) {
     if ($hihi == 1) {
         $notidone = "Log In Success";
         $notibonus = '.then(function() { window.location.href = "home.php"; })'; // dan ve home
+        $_SESSION['user'] = $mail;
     } else {
         $notifail = "Wrong Email or Password";
     }

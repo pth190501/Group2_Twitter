@@ -39,6 +39,25 @@
                                 Tweet
                             </button>
                         </div>
+                        <div class="container border border-dark mt-2">
+                            <img src="assets/img/profile.svg" alt=""> Your Name
+                            <h5>Content Status</h5>
+                            <div>
+                                <img src="assets/img/Back-logo.png" alt="" style ="width:50%">
+                            </div>
+                            <div class="btn-group d-flex justify-content-between" role="group" aria-label="Basic example">
+                                <button type="button" class="border-0 bg-white">
+                                <i class="far fa-heart"></i>
+                                </button>
+                                <button type="button" class="border-0 bg-white">
+                                    <i class="far fa-comment"></i>
+                                </button>
+                                <button type="button" class="border-0 bg-white">
+                                <i class="far fa-share-square"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
 

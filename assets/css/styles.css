@@ -46,3 +46,50 @@
 .fa-brands.fa-twitter.logo {
     text-align: center;
 }
+
+.signup-form {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(5rem,1fr) 2fr minmax(5rem,1fr);
+    grid-template-rows: repeat(2,min-content) 1fr;
+    row-gap: 1.5rem;
+}
+
+.nav-header-sign_up {
+    grid-column: 1/4;
+    grid-row: 1/2;
+    box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.3);
+    padding: 2rem 0;
+}
+
+.form-container {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+
+.form-control{
+    border:0px;
+    background-color: rgb(245, 248, 250);
+    border-bottom: 2px solid #657786;
+    padding: 0px 4px 0px 4px;
+    min-height: 20px;
+}
+
+.form-control:focus{
+    box-shadow: none;
+    background-color: rgb(245, 248, 250);
+    border-color: #31a1f2;
+}
+
+    a{
+    text-decoration: none;
+    color: rgb(27, 149, 224);
+    }
+    a:hover{
+        text-decoration: none;
+    }
+    i.fa.fa-twitter:hover {
+        color: #17a2b8;
+    }

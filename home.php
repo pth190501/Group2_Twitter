@@ -94,7 +94,7 @@ if (isset($_POST['submit'])) {
                         </div>
                         <form method="POST" action="">
                             <div class="btn-group d-flex justify-content-between" role="group" aria-label="Basic example">
-                                <button type="submit" class="border-0 bg-white" na'me="heart" value="<?= $post['id']; ?>">
+                                <button type="submit" class="border-0 bg-white" name="heart" value="<?= $post['id']; ?>">
                                     <i class="far <?php if ($liked) echo "fa-solid"; ?> fa-heart"></i>&nbsp;<?= (int) $post['num_like']; ?>
                                 </button>
                             </div>

@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    list-style: none;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+:root {
+    --twitter-color : #50b7f5;
+    --twitter-background : #e6ecf0;
+}
+
+.bird-icon {
+    color: var(--twitter-color);
+    font-size: 50px!important;
+    padding-bottom: 12px;
+}
+
+.content1 {
+    margin: 48px 0;
+    font-size: 64px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-stretch: 100%;
+    font-weight: 700;
+    line-height: 84px;
+    overflow-wrap: break-word;
+}
+
+.content2 {
+    margin-bottom: 32px;
+    font-size: 31px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-stretch: 100%;
+    font-weight: 700;
+    line-height: 36px;
+    overflow-wrap: break-word;
+}
+
+.sign-up{
+    border: .1rem solid var(--twitter-color);
+    border-radius: 4rem;
+}
+
+.fa-brands.fa-twitter.logo {
+    text-align: center;
+}
+
+.signup-form {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(5rem,1fr) 2fr minmax(5rem,1fr);
+    grid-template-rows: repeat(2,min-content) 1fr;
+    row-gap: 1.5rem;
+}
+
+.nav-header-sign_up {
+    grid-column: 1/4;
+    grid-row: 1/2;
+    box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.3);
+    padding: 2rem 0;
+}
+
+.form-container {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+
+.form-control{
+    border:0px;
+    background-color: rgb(245, 248, 250);
+    border-bottom: 2px solid #657786;
+    padding: 0px 4px 0px 4px;
+    min-height: 20px;
+}
+
+.form-control:focus{
+    box-shadow: none;
+    background-color: rgb(245, 248, 250);
+    border-color: #31a1f2;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(27, 149, 224);
+    }
+    a:hover{
+        text-decoration: none;
+    }
+    i.fa.fa-twitter:hover {
+        color: #17a2b8;
+    }
+
+    

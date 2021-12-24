@@ -1,5 +1,5 @@
 <?php require_once 'sys/head.php'; ?>
-    
+
 <?php
 if (!isset($_SESSION['user'])) {
     header("Location: /");
@@ -7,10 +7,17 @@ if (!isset($_SESSION['user'])) {
 }
 ?>
 <?php
-if (isset($_POST['submit'])) {
-    $content = mpost('content');
-    $db->exec("INSERT INTO `posts` (`uid`, `content`, `img`) VALUES ('$uid', '$content', '');");
-    $notidone = "Post Success";
+if (isset($_POST['submit']) ) {
+    if (mpost('content') != '') {
+        $content = mpost('content');
+        $db->exec("INSERT INTO `posts` (`uid`, `content`, `img`) VALUES ('$uid', '$content', '');");
+        $notidone = "Post Success";
+    }
+    else {
+        $notifail = "Input data is not enough!!";
+    }
+
+    
 } else if (isset($_POST['heart'])) {
     $idheart = (int) mpost('heart');
     $liked = $db->query("SELECT * FROM `user_like` WHERE `idpost` = '$idheart' AND `uid` = '$uid' LIMIT 1")->fetch();
@@ -21,34 +28,29 @@ if (isset($_POST['submit'])) {
         $db->exec("INSERT INTO `user_like` (`uid`, `idpost`) VALUES ('$uid', '$idheart');");
         $db->exec("UPDATE `posts` SET `num_like` = `num_like` + '1' WHERE `id` = '$idheart';");
     }
-    //$notidone = "Like Success";
+
 } else if (isset($_POST['submit-cmt'])) {
     $idcmt = (int) mpost('submit-cmt');
     $content = mpost('content-' . $idcmt);
     $db->exec("INSERT INTO `cmt` (`uid`, `content`, `postid`) VALUES ('$uid', '$content', '$idcmt');");
 }
 ?>
-    <div class="container-fluid p-0">
-        
-        <div class="col md-12">
+<div class="container-fluid p-0">
+    <div class="col md-12">
 
-            <div class="row">
-                <div class="col-md-3 text-center">
-                <?php require_once 'sys/left-side.php'; ?>
-                </div>
+        <div class="row">
+            <div class="col-md-3 text-center pe-1 sticky-top ">
+                <?php require_once 'sys/left-sidebar.php'; ?>
+            </div>
 
-                <div class="col-md-6">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                        <div class="navbar-brand">
-                            <h3>HOME</h3>
-                        </div>
-                        <div class="navbar-nav me-md-auto">
-                        <a href="home.php" class="btn bg-light" role="button">
-                            <img src="assets/img/star.svg" alt="">
-                        </a>
+            <div class="col-md-6 p-0 border boder-light">
+                <nav class="navbar navbar-expand- bg-light mb-2 sticky-top">
+                    <div class="navbar-brand">
+                        <h3>HOME</h3>
                     </div>
+                    
                 </nav>
-                <form method="POST" action="" >
+                <form method="POST" name='sentTW' action="">
                     <div class="container">
                         <div class="form-floating">
                             <textarea name="content" class="form-control mb-1" placeholder="What's happenning?" id="floatingTextarea2" style="height: 100px"></textarea>
@@ -56,7 +58,7 @@ if (isset($_POST['submit'])) {
                         <div class="row">
                             <div class="col align-self-start">
                                 <div class="btn-group bg-white" role="group" aria-label="Basic example">
-                                    <button type="button" class="border-0 bg-white p-1" id ="btn_img">
+                                    <button type="button" class="border-0 bg-white p-1" id="btn_img">
                                         <img src="assets/img/addimg.svg" alt="">
                                     </button>
                                     <button type="button" class="border-0 bg-white p-1">
@@ -68,11 +70,12 @@ if (isset($_POST['submit'])) {
                                 </div>
                             </div>
                             <div class="col align-self-end d-flex justify-content-end">
-                                <button name="submit" type="submit" class="btn btn-primary rounded-pill" style="width:100px">
-                                        Tweet
-                                    </button>
-                            </div> 
-                    </div>
+                                <button name="submit" type="submit" class="btn btn-primary rounded-pill" style="width:100px" >
+                                    Tweet
+                                </button>
+                            </div>
+                            
+                        </div>
                 </form>
                 <!-- content -->
                 <?php
@@ -90,7 +93,7 @@ if (isset($_POST['submit'])) {
                         <img src=" assets/img/profile.svg" alt=""> <?= $queryy['f_name'] . " " . $queryy['l_name']; ?>
                         <h5><?= $post['content']; ?></h5>
                         <div>
-                            <img src="assets/img/Back-logo.png" alt="" style="width:50%">
+                            <img src="" alt="" style="width:50%">
                         </div>
                         <form method="POST" action="">
                             <div class="btn-group d-flex justify-content-between" role="group" aria-label="Basic example">
@@ -103,38 +106,38 @@ if (isset($_POST['submit'])) {
                             <div class="col-md-8 col-lg-12 p-0">
                                 <div class="card shadow-0 border-0" style="background-color: #f0f2f5;">
                                     <div class="card-body p-1">
-                                        <div class="form-outline d-flex">
-                                            <input type="text" id="addANote" name="content-<?= $post['id']; ?>" class="form-control m-1" placeholder="Type comment..."  style="width:90%"/>
-                                            <button name="submit-cmt" type="submit" class="btn btn-primary m-1" value="<?= $post['id']; ?>"style="width:10%">
-                                            <i class="fas fa-paper-plane"></i>
+                                        <form method="POST" action="" class="form-outline d-flex">
+                                            <input type="text" id="addANote" name="content-<?= $post['id']; ?>" class="form-control m-1" placeholder="Type comment..." style="width:90%" required/>
+                                            <button name="submit-cmt" type="submit" class="btn btn-primary m-1" value="<?= $post['id']; ?>" style="width:10%">
+                                                <i class="fas fa-paper-plane"></i>
                                             </button>
-                                        </div>
-                                    <?php 
-                                    $cmts = $db->query("SELECT * FROM `cmt` WHERE `postid` = '" . $post['id'] . "' ORDER BY `id` DESC LIMIT 3");
-                                    foreach ($cmts as $cmt) { 
-                                    $queryy = $db->query("SELECT * FROM `register` WHERE `id` = '" . $cmt['uid'] . "'")->fetch(); ?>
-                                        <div class="card mb-4">
-                                            <div class="card-body">
-                                                <p><?= $cmt['content']; ?></p>
+                                        </form>
+                                        <?php
+                                        $cmts = $db->query("SELECT * FROM `cmt` WHERE `postid` = '" . $post['id'] . "' ORDER BY `id` DESC LIMIT 3");
+                                        foreach ($cmts as $cmt) {
+                                            $queryy = $db->query("SELECT * FROM `register` WHERE `id` = '" . $cmt['uid'] . "'")->fetch(); ?>
+                                            <div class="card mb-4">
+                                                <div class="card-body">
+                                                    <p><?= $cmt['content']; ?></p>
 
-                                                <div class="d-flex justify-content-between">
-                                                    <div class="d-flex flex-row align-items-center">
-                                                        <!--img src="## src avatar ##" alt="avatar" width="25" height="25" /-->
-                                                        <p class="small mb-0 ms-2"><?= $queryy['f_name'] . " " . $queryy['l_name']; ?></p>
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="d-flex flex-row align-items-center">
+                                                            <!--img src="## src avatar ##" alt="avatar" width="25" height="25" /-->
+                                                            <p class="small mb-0 ms-2"><?= $queryy['f_name'] . " " . $queryy['l_name']; ?></p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    <?php } ?>
-                                        
+                                        <?php } ?>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                     </div>
-                    <?php }
-                
+                <?php }
+
                 ?>
 
                 <!-- content -->
@@ -150,4 +153,5 @@ if (isset($_POST['submit'])) {
 
 </div>
 
-<?php require_once 'sys/end.php'; ?>
+
+<?php require_once 'sys/end-main.php'; ?>

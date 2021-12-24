@@ -83,7 +83,11 @@
     border-color: #31a1f2;
 }
 
+<<<<<<< HEAD
     a{
+=======
+a{
+>>>>>>> fa191a29b8e22bc509f32b14ae11752e8a7046cd
     text-decoration: none;
     color: rgb(27, 149, 224);
     }
@@ -93,3 +97,8 @@
     i.fa.fa-twitter:hover {
         color: #17a2b8;
     }
+<<<<<<< HEAD
+=======
+
+    
+>>>>>>> fa191a29b8e22bc509f32b14ae11752e8a7046cd

@@ -3,6 +3,11 @@
     session_start();
     date_default_timezone_set("Asia/Ho_Chi_Minh");
     set_time_limit(0);
+<<<<<<< HEAD
+=======
+    ini_set('session.gc_maxlifetime', 30*24*60*60); 
+    ini_set('session.cookie_lifetime', 30*24*60*60); 
+>>>>>>> fa191a29b8e22bc509f32b14ae11752e8a7046cd
     
     $titleconfig = "Twitter";
     //ket noi db

@@ -55,19 +55,16 @@ if (isset($_POST['submit']) ) {
                         <div class="form-floating">
                             <textarea name="content" class="form-control mb-1" placeholder="What's happenning?" id="floatingTextarea2" style="height: 100px"></textarea>
                         </div>
-                        <div class="row">
-                            <div class="col align-self-start">
+                        <div class="row m-1">
+                            <div class="col align-self-start d-flex ustify-content-start ">
                                 <div class="btn-group bg-white" role="group" aria-label="Basic example">
-                                    <button type="button" class="border-0 bg-white p-1" id="btn_img">
-                                        <img src="assets/img/addimg.svg" alt="">
-                                    </button>
-                                    <button type="button" class="border-0 bg-white p-1">
-                                        <img src="assets/img/addgif.svg" alt="">
-                                    </button>
-                                    <button type="button" class="border-0 bg-white p-1">
-                                        <img src="assets/img/addemoji.svg" alt="">
-                                    </button>
-                                </div>
+                                    <div class="image-upload">
+                                        <label for="file-input" >
+                                            <img src="assets/img/addimg.svg"/>
+                                        </label>
+                                        <input id="file-input" type="file" style="display:none"/>
+                                    </div>
+                                
                             </div>
                             <div class="col align-self-end d-flex justify-content-end">
                                 <button name="submit" type="submit" class="btn btn-primary rounded-pill" style="width:100px" >
@@ -143,6 +140,7 @@ if (isset($_POST['submit']) ) {
                 <!-- content -->
             </div>
         </div>
+</div>
 
         <div class="col-md-3 ps-1">
             <?php require_once 'sys/right-sidebar.php'; ?>
@@ -150,8 +148,5 @@ if (isset($_POST['submit']) ) {
     </div>
 
 </div>
-
-</div>
-
 
 <?php require_once 'sys/end-main.php'; ?>

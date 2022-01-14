@@ -1,5 +1,4 @@
 <?php
-$tit = "Sign Up";
 require_once 'sys/head.php';
 if (isset($_SESSION['user'])) {
     header("Location: home.php");
@@ -20,12 +19,12 @@ if (isset($_POST['save'])) {
     } else if (!preg_match($pattern, $mail)) {
         $notifail = "Email format is incorrect";
     } else {
-        $hihi = $db->query("SELECT * FROM register WHERE mail = '$mail' LIMIT 1")->rowcount();
+        $hihi = $db->query("SELECT * FROM `register` WHERE `mail` = '$mail' LIMIT 1")->rowcount();
         if ($hihi != 0) {
             $notifail = "Email already exists in the system";
         } else {
             //thoa man
-            $db->query("INSERT INTO register(f_Name, l_Name, mail, Password) VALUES ('" . $fname . "', '" . $lname . "', '" . $mail . "', '" . md5($pass) . "')");
+            $db->query("INSERT INTO `register` (`id`, `uid`, `f_name`, `l_name`, `mail`, `password`, `bio`, `location`, `website`, `following`, `follower`, `posts`, `datejoin`) VALUES (NULL, NULL, '$fname', '$lname', '$mail', '" . md5($pass) . "', NULL, NULL, NULL, '0', '0', '0', '" . time() . "');");
             $notidone = "Sign Up Success";
             $notibonus = '.then(function() { window.location.href = "login.php"; })';
         }
@@ -33,15 +32,14 @@ if (isset($_POST['save'])) {
 }
 ?>
 <div class="signup-form">
-    <div class="col-md-3"></div>
-    <div class="col-md-12 p-0 pt-3">
+
+
+    <form class="form-container p-1" method="post" enctype="multipart/form-data">
         <div class="bird-icon">
             <a href="index.php">
                 <i class="fa-brands fa-twitter logo"></i>
             </a>
         </div>
-    </div>
-    <form class="form-container" method="post" enctype="multipart/form-data">
         <h2>Register</h2>
         <p class="hint-text">Create your account</p>
         <div class="form-group">

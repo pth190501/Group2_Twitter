@@ -111,18 +111,10 @@ if (isset($_POST['submit'])) {
                         <div class="form-floating">
                             <textarea name="content" class="form-control m-1" placeholder="What's happenning?" id="floatingTextarea2" style="height: 100px"></textarea>
                         </div>
-                        <div class="row m-1">
-                            <div class="col align-self-start d-flex ustify-content-start ">
+                        <div class="row">
+                            <div class="col align-self-start">
                                 <div class="btn-group bg-white" role="group" aria-label="Basic example">
                                     <div class="image-upload">
-<<<<<<< HEAD
-                                        <label for="file-input" >
-                                            <img src="assets/img/addimg.svg"/>
-                                        </label>
-                                        <input id="file-input" type="file" style="display:none"/>
-                                    </div>
-                                
-=======
                                         <label for="file-input">
                                             <img src="assets/img/addimg.svg" />
                                         </label>
@@ -130,7 +122,6 @@ if (isset($_POST['submit'])) {
                                     </div>
 
                                 </div>
->>>>>>> 11_1951060564_VuVanChuc
                             </div>
                             <div class="col align-self-end d-flex justify-content-end">
                                 <button name="submit" type="submit" class="btn btn-primary rounded-pill" style="width:100px">
@@ -295,7 +286,6 @@ if (isset($_POST['submit'])) {
                 <!-- content -->
             </div>
         </div>
-</div>
 
         <div class="col-md-3 p-1 d-lg-block d-none">
             <?php require_once 'sys/right-sidebar.php'; ?>
@@ -304,10 +294,6 @@ if (isset($_POST['submit'])) {
 
 </div>
 
-<<<<<<< HEAD
-<?php require_once 'sys/end-main.php'; ?>
-=======
 </div>
 
 <?php require_once 'sys/end.php'; ?>
->>>>>>> 11_1951060564_VuVanChuc

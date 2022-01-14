@@ -24,7 +24,7 @@ if (isset($_POST['save'])) {
             $notifail = "Email already exists in the system";
         } else {
             //thoa man
-            $db->query("INSERT INTO `register` (`id`, `uid`, `f_name`, `l_name`, `mail`, `password`, `bio`, `location`, `website`, `following`, `follower`, `posts`, `datejoin`) VALUES (NULL, NULL, '$fname', '$lname', '$mail', '" . md5($pass) . "', NULL, NULL, NULL, '0', '0', '0', '" . time() . "');");
+            $db->query("INSERT INTO `register` (`id`, `uid`, `f_name`, `l_name`, `mail`, `password`, `bio`, `location`, `website`, `following`, `follower`, `posts`, `datejoin`) VALUES (NULL, NULL, '$fname', '$lname', '$mail', '" . hashp($pass) . "', NULL, NULL, NULL, '0', '0', '0', '" . time() . "');");
             $notidone = "Sign Up Success";
             $notibonus = '.then(function() { window.location.href = "login.php"; })';
         }

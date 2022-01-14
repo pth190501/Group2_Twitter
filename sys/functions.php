@@ -23,4 +23,20 @@ function mpost($name) {
     }
 }
 
+function info_admin($a, $b) {
+    global $db;
+    $c = $db->query("SELECT * FROM `admin` WHERE `id` = '$a'")->fetch();
+    return $c[$b];
+}
+
+function setting($text) {
+    global $db;
+    $cd = $db->query("SELECT * FROM `setting` WHERE `id` = '1'")->fetch();
+    return html_entity_decode($cd[$text]);
+}
+
+function hashp($inp) {
+    return md5("hihi" . $inp);
+}
+
 ?>

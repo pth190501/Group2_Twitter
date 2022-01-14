@@ -5,8 +5,6 @@ function locdata($var)
         $data = trim(addslashes(htmlspecialchars($var)));
         return $data;
     } // anti sql injection
-<<<<<<< HEAD
-=======
     
 function mget($name) {
     if (isset($_GET[$name])) {
@@ -25,5 +23,20 @@ function mpost($name) {
     }
 }
 
->>>>>>> fa191a29b8e22bc509f32b14ae11752e8a7046cd
+function info_admin($a, $b) {
+    global $db;
+    $c = $db->query("SELECT * FROM `admin` WHERE `id` = '$a'")->fetch();
+    return $c[$b];
+}
+
+function setting($text) {
+    global $db;
+    $cd = $db->query("SELECT * FROM `setting` WHERE `id` = '1'")->fetch();
+    return html_entity_decode($cd[$text]);
+}
+
+function hashp($inp) {
+    return md5("hihi" . $inp);
+}
+
 ?>
